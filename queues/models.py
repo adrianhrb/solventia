@@ -1,0 +1,15 @@
+from django.db import models
+
+from .utils import get_random_rgb
+
+
+class Queue(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(unique=True)
+    color = models.CharField(max_length=13, blank=True, default=get_random_rgb)
+    email_to = models.EmailField()
+
+    def save(self, *args, **kwargs):
+        if not self.color:
+            self.color = get_random_rgb()
+        super().save(*args, **kwargs)
