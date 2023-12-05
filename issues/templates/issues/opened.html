@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Solventia | Abiertas{% endblock %}
+
+{% block content %}
+<h1>Incidencias</h1>
+<a href="{% url "issues:opened" %}" {% if section == 'opened' %}class="selected"{% endif %}>Abiertas</a>
+<a href="{% url "issues:opened" %}" {% if section == 'closed' %}class="selected"{% endif %}>Cerradas</a>
+<a href="{% url "issues:opened" %}" {% if section == 'opened' %}class="selected"{% endif %}>Abiertas</a>
+{% endblock %}

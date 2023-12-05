@@ -5,4 +5,5 @@ from .models import Queue
 
 @admin.register(Queue)
 class QueueAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['name', 'slug', 'color', 'email_to']
+    prepopulated_fields = {'slug': ['name']}

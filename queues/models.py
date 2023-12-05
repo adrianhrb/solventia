@@ -13,3 +13,6 @@ class Queue(models.Model):
         if not self.color:
             self.color = get_random_rgb()
         super().save(*args, **kwargs)
+
+    def __str__(self) -> str:
+        return self.name
