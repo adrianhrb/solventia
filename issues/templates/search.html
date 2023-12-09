@@ -1,0 +1,22 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <h1>Incidencias</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="sections">
+            <a href="{% url "issues:opened" %}" {% if section == 'abiertas' %}class="selected"{% endif %}>Abiertas</a>
+            <a href="{% url "issues:closed" %}" {% if section == 'cerradas' %}class="selected"{% endif %}>Cerradas</a>
+        </div>
+        <form class="d-flex ms-auto" role="search" method="get">
+            <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" id="search-element" name="search-element">
+            <button id="search" class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+    </div>
+  </div>
+</nav>

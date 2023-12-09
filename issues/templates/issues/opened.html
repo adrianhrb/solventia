@@ -3,8 +3,9 @@
 {% block title %}Solventia | Abiertas{% endblock %}
 
 {% block content %}
-<h1>Incidencias</h1>
-<a href="{% url "issues:opened" %}" {% if section == 'opened' %}class="selected"{% endif %}>Abiertas</a>
-<a href="{% url "issues:opened" %}" {% if section == 'closed' %}class="selected"{% endif %}>Cerradas</a>
-<a href="{% url "issues:opened" %}" {% if section == 'opened' %}class="selected"{% endif %}>Abiertas</a>
+{% include "search.html" %}
+{% for issue in issues %}
+    <span><a href="{{ issue.get_absolute_url }}">{{ issue.title }}</a></span>
+    <span><button style="background-color: rgb({{ issue.queue.color }})"><a href="{{ issue.queue.get_absolute_url }}">{{ issue.queue.name }}</a></button></span>
+{% endfor %}
 {% endblock %}
