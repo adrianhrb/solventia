@@ -5,3 +5,8 @@ class CreateIssueForm(forms.ModelForm):
     class Meta:
         model = Issue
         fields = ['title', 'description', 'queue', 'urgent']
+
+class EditIssueForm(forms.ModelForm):
+    class Meta:
+        model = Issue
+        fields = ['title', 'description', 'queue', 'urgent']

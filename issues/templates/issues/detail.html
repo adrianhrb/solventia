@@ -5,7 +5,11 @@
 {% block content %}
 {% include "search.html" %}
 <div class="container">
+    {% if issue.urgent %}
+        <h3 style="color:red">Urgente: {{ issue.title }}</h3>
+    {% else %}
     <h3>{{ issue.title }}</h3>
+    {% endif %}
     <button style="background-color: rgb({{ issue.queue.color }})"><a href="{{ issue.queue.get_absolute_url }}">{{ issue.queue.name }}</a></button>
     <br><br>
     <p>
@@ -16,5 +20,7 @@
             <b><li>Creada el {{ issue.created_at.day }}/{{ issue.created_at.month }} a las {{ issue.created_at.hour }}:{{ issue.created_at.minute }}</li></b>
         </ul>
     </p>
+    <br>
+    <button><a href="{% url "issues:edit" issue.id %}">Editar</a></button>
 </div>
 {% endblock %}
