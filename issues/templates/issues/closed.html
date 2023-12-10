@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Solventia | Abiertas{% endblock %}
+{% block title %}Solventia | Cerradas{% endblock %}
 
 {% block content %}
 {% include "search.html" %}
@@ -17,7 +17,7 @@
             {% endfor %}
             {% else %}
             <div class="col-12">
-                <p>No hay tareas abiertas en este momento</p>
+                <p>No hay tareas cerradas en este momento</p>
             </div>
             {% endif %}
         </div>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Solventia | Crear{% endblock %}
+
+{% block content %}
+{% include "search.html" %}
+<div class="container">
+    <h3>Agregar una nueva tarea</h3>
+    <form method='post'>
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit">Crear</button>
+    </form>
+</div>
+
+{% endblock  %}

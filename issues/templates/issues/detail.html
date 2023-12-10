@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Solventia | {{ issue.id }}{% endblock %}
+
+{% block content %}
+{% include "search.html" %}
+<div class="container">
+    <h3>{{ issue.title }}</h3>
+    <button style="background-color: rgb({{ issue.queue.color }})"><a href="{{ issue.queue.get_absolute_url }}">{{ issue.queue.name }}</a></button>
+    <br><br>
+    <p>
+        {{ issue.description }}
+    </p>
+    <p>
+        <ul>
+            <b><li>Creada el {{ issue.created_at.day }}/{{ issue.created_at.month }} a las {{ issue.created_at.hour }}:{{ issue.created_at.minute }}</li></b>
+        </ul>
+    </p>
+</div>
+{% endblock %}

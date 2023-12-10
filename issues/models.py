@@ -30,5 +30,5 @@ class Issue(models.Model):
     def __str__(self):
         return self.title
 
-    def get_abolute_url(self):
-        return reverse('issue:detail', args=[self.id])
+    def get_absolute_url(self):
+        return reverse('issues:detail', args=[self.id])
