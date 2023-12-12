@@ -10,7 +10,7 @@
             {% for issue in issues %}
             <div class="col-12">
                 <p>
-                    <span><a href="{{ issue.get_absolute_url }}">{{ issue.title }}</a></span>
+                    <span><a href="{{ issue.get_absolute_url }}"{% if issue.urgent %}style="text_decoration:none;color:red;"{% endif %}>{{ issue.title }}</a></span>
                     <span><button style="background-color: rgb({{ issue.queue.color }})"><a href="{{ issue.queue.get_absolute_url }}">{{ issue.queue.name }}</a></button></span>
                 </p>
             </div>

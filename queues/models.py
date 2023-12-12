@@ -17,7 +17,6 @@ class Queue(models.Model):
 
     def __str__(self) -> str:
         return self.name
-    
+
     def get_absolute_url(self):
-        return reverse("queues:detail", args=[self.id])
-    
+        return reverse('queues:detail', args=[self.id])

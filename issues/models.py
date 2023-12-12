@@ -16,7 +16,7 @@ class ClosedManager(models.Manager):
 
 
 class Issue(models.Model):
-    queue = models.ForeignKey(Queue, related_name='issue', on_delete=models.CASCADE)
+    queue = models.ForeignKey(Queue, related_name='issues', on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     description = models.TextField()
     urgent = models.BooleanField()
