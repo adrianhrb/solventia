@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from prettyconf import config
+from django.utils import timezone
 
 from .models import Issue
 from .forms import CreateIssueForm, EditIssueForm
@@ -51,3 +52,15 @@ def edit_issue(request, issue_id: int):
     else:
         form = EditIssueForm(instance=issue)
         return render(request, 'issues/edit.html', dict(form=form))
+
+def close_issue(request, issue_id: int):
+    issue = Issue.objects.get(id=issue_id)
+    issue.closed_at = timezone.now()
+    issue.save()
+    return redirect('issues:closed')
+
+def reopen_issue(request, issue_id: int):
+    issue = Issue.objects.get(id=issue_id)
+    issue.closed_at = None
+    issue.save()
+    return redirect('issues:opened')

@@ -21,6 +21,16 @@
         </ul>
     </p>
     <br>
+    <button><a href="{% url "issues:opened" %}">Volver</a></button>
     <button><a href="{% url "issues:edit" issue.id %}">Editar</a></button>
+    {% if issue.closed_at %}
+        <form action="{% url "issues:reopen" issue.id %}">
+            <button type="submit">Reabrir</button>
+        </form>
+    {% else %}
+        <form action="{% url "issues:close" issue.id %}">
+            <button type="submit">Cerrar</button>
+        </form>
+    {% endif %}
 </div>
 {% endblock %}
