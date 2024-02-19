@@ -19,3 +19,6 @@ super:
 
 debug:
     python manage.py debugsqlshell
+
+check:
+    python manage.py check

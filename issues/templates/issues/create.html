@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}Solventia | Crear{% endblock %}
 
@@ -7,7 +8,7 @@
 <div class="container">
     <h3>Agregar una nueva tarea</h3>
     <form method='post'>
-        {{ form.as_p }}
+        {{ form|crispy }}
         {% csrf_token %}
         <button type="submit">Crear</button>
     </form>
